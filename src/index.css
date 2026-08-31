@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    background-color: #030712;
+    color: #ffffff;
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+/* Modern Gradient Mesh & Cyber Ambient Background */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(34, 197, 94, 0.04) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(14, 165, 233, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 90%, rgba(139, 92, 246, 0.05) 0px, transparent 60%);
+  background-attachment: fixed;
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-panel {
+  background: rgba(10, 16, 32, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+  background: rgba(13, 20, 38, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(18, 27, 50, 0.85);
+  border-color: rgba(34, 197, 94, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -15px rgba(34, 197, 94, 0.15);
+}
+
+/* Enhanced 3D Tilt & High-Intensity Shadow for Service Cards */
+.service-card-tilt {
+  position: relative;
+  background: rgba(13, 20, 38, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              background 0.35s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+
+.service-card-tilt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(34, 197, 94, 0.12), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.service-card-tilt:hover::before {
+  opacity: 1;
+}
+
+.service-card-tilt:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-2.5deg) scale(1.018);
+  background: rgba(18, 28, 55, 0.92);
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 
+    0 25px 50px -10px rgba(0, 0, 0, 0.85),
+    0 0 35px 0px rgba(34, 197, 94, 0.32),
+    0 0 65px -10px rgba(34, 197, 94, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll To Top Button Glow */
+.btn-scroll-top {
+  background: rgba(10, 18, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(34, 197, 94, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-scroll-top:hover {
+  background: rgba(18, 28, 58, 0.95);
+  border-color: #22c55e;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(34, 197, 94, 0.45);
+}
+.btn-scroll-top:active {
+  transform: translateY(0px) scale(0.95);
+}
+
+/* Original WhatsApp Button with Modern Tactile Press & Glow */
+.btn-whatsapp {
+  background: #25D366;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 0 #128C7E, 0 10px 25px rgba(37, 211, 102, 0.35);
+  transition: all 0.15s ease;
+  position: relative;
+}
+.btn-whatsapp:hover {
+  background: #2ebd59;
+  box-shadow: 0 4px 0 #128C7E, 0 15px 30px rgba(37, 211, 102, 0.5);
+}
+.btn-whatsapp:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #128C7E, 0 5px 10px rgba(37, 211, 102, 0.3);
+}
+
+/* Original Telegram Button with Modern Tactile Press & Glow */
+.btn-telegram {
+  background: #24A1DE;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 0 #1b7ba9, 0 10px 25px rgba(36, 161, 222, 0.35);
+  transition: all 0.15s ease;
+  position: relative;
+}
+.btn-telegram:hover {
+  background: #2ab4f5;
+  box-shadow: 0 4px 0 #1b7ba9, 0 15px 30px rgba(36, 161, 222, 0.5);
+}
+.btn-telegram:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #1b7ba9, 0 5px 10px rgba(36, 161, 222, 0.3);
+}
+
+.btn-dark-modern {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 0 rgba(0,0,0,0.6), 0 10px 20px rgba(0,0,0,0.4);
+  transition: all 0.15s ease;
+}
+.btn-dark-modern:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 rgba(0,0,0,0.6), 0 5px 10px rgba(0,0,0,0.4);
+}
+
+/* Ambient Glows */
+.pulse-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: pulseGlow 8s infinite alternate;
+}
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.25; }
+  100% { transform: scale(1.25); opacity: 0.45; }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float { 
+  animation: floatSlow 6s ease-in-out infinite; 
+}
+
+.modal-active { 
+  display: flex !important; 
+  animation: fadeInModal 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+@keyframes fadeInModal { 
+  from { opacity: 0; transform: scale(0.95); } 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+/* Glassmorphism Bottom Menu with ambient glow */
+.glass-bottom-menu {
+  background: rgba(7, 13, 29, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(34, 197, 94, 0.08);
+}
+
+.scroll-reveal {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
